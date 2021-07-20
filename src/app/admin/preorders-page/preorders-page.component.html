@@ -1,0 +1,9 @@
+<p>preorders-page works!</p>
+
+<form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+  <input type="text" placeholder="Name" name="name" ngModel required #name="ngModel">
+  <input type="text" placeholder="Email" email name="email" ngModel required #email="ngModel">
+  <textarea placeholder="Messages" name="messages" ngModel required #messages="ngModel"></textarea>
+<!--  <input type="submit" value="Send">-->
+  <button type="submit" class="btn btn-primary btn-block">Отправить</button>
+</form>

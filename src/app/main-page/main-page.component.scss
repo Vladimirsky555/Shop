@@ -1,0 +1,11 @@
+.dashboard {
+  display: grid;
+  padding: 1.5rem;
+  gap: 10px 15px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.box {
+  //width: 33.333%;
+  //margin-top: 2rem;
+}

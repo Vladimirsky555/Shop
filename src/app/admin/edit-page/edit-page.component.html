@@ -1,0 +1,51 @@
+<div *ngIf="form; else loading">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <h2 class="text-center">Редактирование продукта</h2>
+
+    <div class="form-control">
+      <label for="type">Type</label>
+      <select formControlName="type">
+        <option value="Phone">Рыба охлаждённая</option>
+        <option value="Tablet">Рыба слабосолёная</option>
+        <option value="Laptop">Рыба вяленая</option>
+      </select>
+      <div *ngIf="form.get('type').touched && form.get('type').invalid" class="validation">
+        <small *ngIf="form.get('type').errors.required">Измените тип продукта</small>
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="title">Название</label>
+      <input id="title" type="title" formControlName="title">
+      <div *ngIf="form.get('title').touched && form.get('title').invalid" class="validation">
+        <small *ngIf="form.get('title').errors.required">Введите название продукта</small>
+      </div>
+    </div>
+    <div class="form-control">
+      <label>Photo:</label>
+      <quill-editor formControlName="photo"></quill-editor>
+
+    </div>
+    <div class="form-control">
+      <label>Информация:</label>
+      <quill-editor formControlName="info"></quill-editor>
+
+    </div>
+    <div class="form-control">
+      <label for="price">Цена</label>
+      <input id="price" type="price" formControlName="price">
+      <div *ngIf="form.get('price').touched && form.get('price').invalid" class="validation">
+        <small *ngIf="form.get('price').errors.required">Введите цену продукта</small>
+      </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary btn-block" [disabled]="form.invalid || submitted">Обновить</button>
+
+
+  </form>
+</div>
+
+<ng-template #loading>
+  <p class="text-center">Загрузка...</p>
+</ng-template>
